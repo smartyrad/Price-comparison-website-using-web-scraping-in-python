@@ -1,0 +1,275 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Price check</title>
+<style>
+        /*
+        ul {
+            list-style-type: none;
+            margin: -8px;
+            padding: 0;
+            overflow: hidden;
+            background-color: #0B132B;
+            top: 0;left: 0;
+
+        }
+        li {
+            float: left;
+        }
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 18px 24px;
+            text-decoration: none;
+        }
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: #DAE2DF;color: black;
+        }
+        li.dropdown {
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DAE2DF;
+            min-width: 160px;
+
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 14px 10px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {background-color: #6D696A;}
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        #searchimage{
+          width:30px;height: 30px;border-radius: 5px;position: relative;top:0.8em;
+        }
+        .searchtext{
+          width: 35em;height: 2.5em;border-radius: 5px;background-color: rgb(255,255,255);border-style: none;padding-left: 1.4em;border-width: 0;margin-top: -6px;margin-left: 20px;
+        }
+        form{
+          margin: 0;padding:0;
+        }
+        .hea{
+          color: white;padding-left: 16em;padding-top:0;position: fixed;top: -14px;right: 0;
+        }
+        #a{
+        display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 18px 24px;
+            text-decoration: none;
+            font-size-adjust: 2px;
+        }*/
+        #a {
+            height: 2.1em;
+            width: 2.1em;
+        }
+
+        #dropdown1 {
+            overflow-wrap: break-word;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .hello {
+            background-color: #3B1F2B;
+        }
+
+        .color1 {
+            color: black;
+        }
+
+        .color2 {
+            color: #3C1642;
+        }
+
+        #as {
+            display: none;
+        }
+
+        .a {
+            width: 80%;
+            margin-left: 85px;
+            height: 4%;
+        }
+
+        .m {
+            font-size: 12px;
+            float: right;
+        }
+
+        .p {
+            background-color: #5E4751;
+        }
+        #b{
+      color: #FFFFFF  ;
+    }
+        .righty{
+            text-align: right;
+        }
+    #w{
+      color: #311b92   ;
+    }
+   .a {
+    background-color: #ee6e73;color: #ee6e73;
+}
+    </style>
+    <script>
+        var a=0;
+  function viewa(){
+  var m=document.getElementById('as');
+   // hide the lorem ipsum text
+   a=a+1;
+   if(a%2!=0){
+   m.style.display="block";}
+   else{
+  m.style.display="none";
+}
+}
+    </script>
+</head>
+<body>
+<div class="darken-4 hello">
+<div class="navbar-fixed">
+<nav>
+  <div class="nav-wrapper hello">
+    <a href="#" class="left brand-logo"><i></i>MY PRICE CHECK</a>
+      <ul class="right">
+          <li><a onclick="viewa()" id="k"><i class="material-icons">search</i></a></li>
+      </ul>
+</div>
+</nav>
+</div>
+</div>
+<nav  class="hello" id="as">
+    <div class="nav-wrapper">
+      <form action="{% url 'search' %}" method="post">
+          {% csrf_token %}
+        <div class="input-field">
+          <input id="search" name="query" type="search" placeholder="Enter names of all products separated by commas" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+  </nav>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center " id="b">MY PRICE CHECK</h1>
+        <div class="row center">
+          <h5 class="header col s12 bold black-text">A price comparator that does just what it says!</h5>
+        </div>
+        <div class="row center">
+          <a href="#" class="btn-large waves-effect waves-light grey">Get Started</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static "images/a.jpg" %}" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">language</i></h2>
+            <h5 class="center">Global Exposure</h5>
+
+            <p class="light">We have made the website in such a fashion that you get the latest prices from both international as well as local sites</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Simple and easy to use</h5>
+
+            <p class="light">We believe in a minimalistic approach and hence tried to make the website as easy to use as possible while at the same time not compromising on it's functionalitites.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+
+            <p class="light">Using the website is as easy as clicking the search icon at the top right of the navigation bar and giving the name of the products you want to search for with a comma separating them</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 white-text light">A modern yet simple to use portal for all your price checks.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static "images/a2.jpg" %}" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row ">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Contact Us</h4>
+          <h5 class=" light">Feel free to contact us using any of the methods given below!</h5>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper righty">
+    <div class="section no-pad-bot righty">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light white-text righty">A modern yet simple to use portal for all your price checks.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static "images/a4.jpg" %}" alt="Unsplashed background img 3"></div>
+  </div>
+<script>
+    (function($){
+  $(function(){
+
+    $('.button-collapse').sideNav();
+    $('.parallax').parallax();
+
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
+</script>
+</body>
+</html>
